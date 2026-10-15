@@ -1,0 +1,126 @@
+:root {
+  --ink: #14213d;
+  --paper: #f6f8fa;
+  --card: #ffffff;
+  --teal: #0f766e;
+  --saffron: #f2a93b;
+  --muted: #5b6577;
+  --line: #dde3ea;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "DM Sans", system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+h1, h2, h3, .logo { font-family: "Libre Baskerville", Georgia, serif; }
+
+a { color: var(--teal); }
+:focus-visible { outline: 3px solid var(--saffron); outline-offset: 2px; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: 0.9rem 1.25rem;
+  background: var(--ink); color: #fff;
+}
+.logo { font-size: 1.3rem; font-weight: 700; color: #fff; text-decoration: none; }
+.nav { display: flex; gap: 1.25rem; margin-left: auto; }
+.nav a { color: #dfe6f1; text-decoration: none; font-weight: 500; }
+.nav a:hover { color: var(--saffron); }
+
+.cart-btn {
+  background: var(--saffron); color: var(--ink);
+  border: 0; border-radius: 999px;
+  padding: 0.45rem 1rem; font: inherit; font-weight: 700; cursor: pointer;
+}
+.cart-count {
+  display: inline-block; min-width: 1.5rem; margin-left: 0.25rem;
+  background: var(--ink); color: #fff; border-radius: 999px;
+  text-align: center; font-size: 0.85rem;
+}
+
+/* Hero */
+.hero { padding: 3.5rem 1.25rem 2.5rem; text-align: center; max-width: 720px; margin: 0 auto; }
+.hero h1 { font-size: clamp(1.9rem, 5vw, 2.9rem); line-height: 1.2; margin-bottom: 0.75rem; }
+.hero p { color: var(--muted); margin-bottom: 1.5rem; }
+.search input {
+  width: 100%; padding: 0.85rem 1.1rem;
+  border: 2px solid var(--line); border-radius: 12px;
+  font: inherit; background: var(--card);
+}
+.search input:focus { border-color: var(--teal); outline: none; }
+
+/* Catalogue */
+.catalogue { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem 3rem; }
+.filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.chip {
+  border: 1px solid var(--line); background: var(--card); color: var(--ink);
+  padding: 0.4rem 1rem; border-radius: 999px;
+  font: inherit; cursor: pointer;
+}
+.chip.active { background: var(--teal); border-color: var(--teal); color: #fff; }
+
+.grid {
+  display: grid; gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+}
+
+.book {
+  display: flex; flex-direction: column;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 10px; overflow: hidden;
+}
+.cover {
+  display: flex; align-items: flex-end;
+  aspect-ratio: 3 / 4; padding: 1rem;
+  color: #fff; font-family: "Libre Baskerville", Georgia, serif;
+  font-weight: 700; font-size: 1.15rem; line-height: 1.25;
+}
+.book-info { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.9rem 1rem 1rem; flex: 1; }
+.book-info h3 { font-size: 1rem; }
+.author { color: var(--muted); font-size: 0.9rem; }
+.tag { font-size: 0.8rem; color: var(--teal); font-weight: 500; }
+.book-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.75rem; }
+.price { font-weight: 700; font-size: 1.1rem; }
+.add-btn {
+  background: var(--ink); color: #fff; border: 0; border-radius: 8px;
+  padding: 0.45rem 0.8rem; font: inherit; font-size: 0.9rem; cursor: pointer;
+}
+.add-btn:hover { background: var(--teal); }
+
+.empty { text-align: center; color: var(--muted); padding: 2rem 0; }
+
+/* About + footer */
+.about { max-width: 720px; margin: 0 auto; padding: 0 1.25rem 3rem; }
+.about h2 { margin-bottom: 0.5rem; }
+.about p { color: var(--muted); }
+
+.site-footer {
+  background: var(--ink); color: #dfe6f1;
+  text-align: center; padding: 1.5rem 1rem; font-size: 0.9rem;
+}
+.site-footer a { color: var(--saffron); }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .site-header { flex-wrap: wrap; gap: 0.75rem; }
+  .nav { order: 3; width: 100%; margin-left: 0; justify-content: space-between; }
+  .cart-btn { margin-left: auto; }
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 0.9rem; }
+  .cover { font-size: 0.95rem; padding: 0.75rem; }
+}
+
+@media (max-width: 380px) {
+  .grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PageTurner | Online Book Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="#top">PageTurner</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#catalogue">Catalogue</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="cart-btn" id="cartBtn" aria-label="Items in cart">
+      Cart <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <h1>Find your next favourite book</h1>
+      <p>Fiction, tech, self-help and more. Search the shelf, pick a title, add it to your cart.</p>
+      <form class="search" role="search" onsubmit="return false">
+        <label for="searchInput" class="sr-only">Search books</label>
+        <input id="searchInput" type="search" placeholder="Search by title or author">
+      </form>
+    </section>
+
+    <section class="catalogue" id="catalogue">
+      <div class="filters" id="filters" role="group" aria-label="Filter by category">
+        <button class="chip active" data-category="All">All</button>
+        <button class="chip" data-category="Fiction">Fiction</button>
+        <button class="chip" data-category="Technology">Technology</button>
+        <button class="chip" data-category="Self-Help">Self-Help</button>
+        <button class="chip" data-category="History">History</button>
+      </div>
+
+      <div class="grid" id="bookGrid"></div>
+      <p class="empty" id="emptyMsg" hidden>No books match your search. Try a different title or category.</p>
+    </section>
+
+    <section class="about" id="about">
+      <h2>About PageTurner</h2>
+      <p>PageTurner is a student project that shows how a simple book catalogue can be built with plain HTML, CSS and JavaScript. It has a responsive layout, live search and category filters.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <p>Built by Aman Yadav</p>
+    <p><a href="https://github.com/amanyadav991980">github.com/amanyadav991980</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
